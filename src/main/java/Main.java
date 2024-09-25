@@ -6,6 +6,8 @@ import src.main.java.strategy.LoadBalancingStrategy;
 import src.main.java.strategy.RandomStrategy;
 import src.main.java.strategy.RoundRobinStrategy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -15,9 +17,11 @@ public class Main {
         Server serverOne = new Server("1", "http://server1.com", true);
         Server serverTwo = new Server("2", "http://server2.com", true);
         Server serverThree = new Server("3", "http://server3.com", true);
-        List<Server> servers = List.of(serverOne, serverTwo, serverThree);
+        Server serverFour = new Server("4", "http://server4.com", false);
+        List<Server> servers = new ArrayList<>(Arrays.asList(serverOne, serverTwo, serverThree, serverFour));
 
         LoadBalancer loadBalancer = new LoadBalancer(servers);
+        loadBalancer.checkHealth();
 
         routeRequestToLB(loadBalancer, new RandomStrategy());
         routeRequestToLB(loadBalancer, new RoundRobinStrategy());
@@ -26,7 +30,7 @@ public class Main {
 
     private static void routeRequestToLB(LoadBalancer loadBalancer, LoadBalancingStrategy strategy) {
         loadBalancer.setStrategy(strategy);
-        var strategyName = strategy.getClass().getName().substring(24);
+        var strategyName = strategy.getClass().getName().substring(23);
         System.out.println("Using Strategy : " + strategyName);
         for (int request = 1; request < 5; request++) {
             Server nextServer = loadBalancer.getNextServer();

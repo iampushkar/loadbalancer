@@ -4,6 +4,7 @@ import src.main.java.dto.Server;
 import src.main.java.strategy.LoadBalancingStrategy;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class LoadBalancer {
@@ -29,5 +30,15 @@ public class LoadBalancer {
 
     public void removeServerFromLB(Server server) {
         servers.remove(server);
+    }
+
+    public void checkHealth() {
+        servers.removeIf(server -> {
+            if (!server.isHealthy()) {
+                System.out.println("Removing Server " + server.getAddress() + " as it is unhealthy");
+                return true;  // Remove this server
+            }
+            return false;  // Keep this server
+        });
     }
 }

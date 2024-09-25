@@ -1,6 +1,6 @@
-package com.pushkar.lb.strategy;
+package src.main.java.strategy;
 
-import com.pushkar.lb.dto.Server;
+import src.main.java.dto.Server;
 
 import java.util.List;
 

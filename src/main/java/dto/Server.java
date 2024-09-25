@@ -1,4 +1,4 @@
-package com.pushkar.lb.dto;
+package src.main.java.dto;
 
 public class Server {
     private String id;

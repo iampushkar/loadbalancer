@@ -1,10 +1,10 @@
-package com.pushkar.lb;
+package src.main.java;
 
-import com.pushkar.lb.dto.Server;
-import com.pushkar.lb.strategy.LeastConnectionStrategy;
-import com.pushkar.lb.strategy.LoadBalancingStrategy;
-import com.pushkar.lb.strategy.RandomStrategy;
-import com.pushkar.lb.strategy.RoundRobinStrategy;
+import src.main.java.dto.Server;
+import src.main.java.strategy.LeastConnectionStrategy;
+import src.main.java.strategy.LoadBalancingStrategy;
+import src.main.java.strategy.RandomStrategy;
+import src.main.java.strategy.RoundRobinStrategy;
 
 import java.util.List;
 

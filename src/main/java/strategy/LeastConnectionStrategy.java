@@ -1,11 +1,10 @@
-package com.pushkar.lb.strategy;
+package src.main.java.strategy;
 
-import com.pushkar.lb.dto.Server;
+import src.main.java.dto.Server;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class LeastConnectionStrategy implements LoadBalancingStrategy {
     private final Map<String, Integer> serverConnectionsMap = new HashMap<>();

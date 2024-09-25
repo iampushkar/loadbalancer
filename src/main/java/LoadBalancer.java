@@ -1,7 +1,7 @@
-package com.pushkar.lb;
+package src.main.java;
 
-import com.pushkar.lb.dto.Server;
-import com.pushkar.lb.strategy.LoadBalancingStrategy;
+import src.main.java.dto.Server;
+import src.main.java.strategy.LoadBalancingStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
